@@ -8,20 +8,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body class="texto">
-    <img class="titulo" src="Logo.png" alt="">
     <div>
-        <p class="titulo__parrafo"> Solo letras minúsculas y sin acentos</p>
-        <input class="button__input" type="text" id="inputTexto" placeholder="Ingrese el texto aquí">
-        <div class="button">
-            <button class="button__encriptador" type="button" onclick="incrementar()">Encriptar</button>
-            <button class="button__desencriptador" type="button" onclick="decrementar()">Desencriptar</button>
+        <img class="titulo" src="Logo.png" alt="">
+        <div class="encriptador1">
+            <textarea class="button__input" type="text" id="inputTexto" placeholder="Ingrese texto aquí"></textarea>
+
+            <p class="terminos"> Solo letras minúsculas y sin acentos</p>
+            
+            <div class="button">
+                <button class="button__encriptador" type="button" value="Encriptar" onclick="encriptador()">Encriptar</button>
+                <button class="button__desencriptador" type="button" value="Desencriptar" onclick="desencriptador()">Desencriptar</button>
+            </div>
         </div>
-    </div>
-    <div class="texto2">
-        <img src="Muñeco.png" alt="Placeholder Image">
-        <h2>Ningún mensaje fue encontrado</h2>
-        <p>Ingresa el texto que desees encriptar o desencriptar</p>
-    </div>
-    <script src="app.js"></script>
-</body>
-</html>
+        <div class="encriptador2">
+            <div class="encriptador__mensaje" id="titulo-mensaje">
+                <img src="Muñeco.png" alt="" id="muneco">
+                <h2>Ningún mensaje fue encontrado</h2>
+                <p>Ingresa el texto que desees encriptar o desencriptar</p>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+    </html>
+</div>

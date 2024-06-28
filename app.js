@@ -1,28 +1,54 @@
+let claro = "abcdefghijklmnopqrstuvwxyz";
+let cifrado = "zyxwvutsrqponmlkjihgfedcba";
+
 function encriptador() {
-    const password = "1234";
-    const key = CryptoJS.SHA256(password);
-    const iv = CryptoJS.lib.WordArray.random(16);
-    //const texto = prompt("Ingrese el texto a encriptar");
-    const mensajeCifrado = CryptoJS.AES.encrypt(texto, key, { iv: iv }).toString();
-    console.log(`El mensaje cifrado es: ${mensajeCifrado}`);
-    localStorage.setItem('iv', iv.toString());
-    localStorage.setItem('mensajeCifrado', mensajeCifrado);
+    let texto = document.getElementById("inputTexto", ).value;
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let parrafo = document.getElementById("parrafo");
+    let muneco = document.getElementById("muneco")
+    salida = ""
+
+    for (i=0; i < texto.length; i++){
+        if (claro.includes(texto[i])){
+            indice = claro.indexOf(texto[i]);
+            salida += cifrado[indice];
+        }        
+    }
+    if (document.getElementById("inputTexto", ).value !=0){
+        document.getElementById("inputTexto", ).value = texto
+        tituloMensaje.textContent = salida;
+        parrafo.textContent = "";
+    }
+    else {
+        document.getElementById("muneco").src = "./Muñeco.png";
+        alert("Debes ingresar el texto")
+    }
 }
 
 function desencriptador() {
-    const password = "1234";
-    const key = CryptoJS.SHA256(password);
-    const iv = CryptoJS.enc.Hex.parse(localStorage.getItem('iv'));
-    const mensajeCifrado =  prompt("Ingrese el texto a encriptar");
-    const bytes = CryptoJS.AES.decrypt(mensajeCifrado, key, { iv: iv });
-    const textoDesencriptado = bytes.toString(CryptoJS.enc.Utf8);
-    console.log(`El texto desencriptado es: ${textoDesencriptado}`);
-}
+    let texto = document.getElementById("inputTexto", ).value;
+    let tituloMensaje = document.getElementById("titulo-mensaje");
+    let parrafo = document.getElementById("parrafo");
+    let muneco = document.getElementById("muneco")
+    salida = ""
 
-// function desencriptador (){
-//    // texto = prompt("Ingrese el texto a desencriptar");
-//     // console.log(`el texto desemencriptado es ${texto}`);
-//     // return `el texto encriptado es ${texto}`;
-//}
+    for (i=0; i < texto.length; i++){
+        if (claro.includes(texto[i])){
+            indice = claro.indexOf(texto[i]);
+            salida += cifrado[indice];
+        }
+    }
+    if (texto.length !=0){
+        texto = salida;
+        tituloMensaje.textContent = texto;
+        parrafo.textContent = "";
+        muneco.src = "./Logo.png"
+    }
+    else {
+        muñeco.src = "./Muñeco.png";
+        alert("Debes ingresar el texto")
+    }
+    texto = ""
+}
 encriptador()
 desencriptador()
