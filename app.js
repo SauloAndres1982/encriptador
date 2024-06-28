@@ -2,7 +2,7 @@ function encriptador() {
     const password = "1234";
     const key = CryptoJS.SHA256(password);
     const iv = CryptoJS.lib.WordArray.random(16);
-    const texto = prompt("Ingrese el texto a encriptar");
+    //const texto = prompt("Ingrese el texto a encriptar");
     const mensajeCifrado = CryptoJS.AES.encrypt(texto, key, { iv: iv }).toString();
     console.log(`El mensaje cifrado es: ${mensajeCifrado}`);
     localStorage.setItem('iv', iv.toString());
