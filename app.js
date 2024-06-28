@@ -7,13 +7,28 @@ function encriptador() {
     let parrafo = document.getElementById("parrafo");
     let muneco = document.getElementById("muneco")
     salida = ""
+    const reemplazos = {
+        'a': 'xy',
+        'e': 'zw',
+        'i': 'pq',
+        'o': 'rs',
+        'u': 'mn',
+        'A': 'XY',
+        'E': 'ZW',
+        'I': 'PQ',
+        'O': 'RS',
+        'U': 'MN'
+    };
 
-    for (i=0; i < texto.length; i++){
-        if (claro.includes(texto[i])){
-            indice = claro.indexOf(texto[i]);
-            salida += cifrado[indice];
-        }        
+    for (let i = 0; i < texto.length; i++) {
+        const caracter = texto[i];
+        if (reemplazos[caracter]) {
+            salida += reemplazos[caracter];
+        } else {
+            salida += caracter;
+        }
     }
+
     if (document.getElementById("inputTexto", ).value !=0){
         document.getElementById("inputTexto", ).value = texto
         tituloMensaje.textContent = salida;
@@ -31,24 +46,37 @@ function desencriptador() {
     let parrafo = document.getElementById("parrafo");
     let muneco = document.getElementById("muneco")
     salida = ""
+    const reemplazosInversos = {
+        'xy': 'a',
+        'zw': 'e',
+        'pq': 'i',
+        'rs': 'o',
+        'mn': 'u',
+        'XY': 'A',
+        'ZW': 'E',
+        'PQ': 'I',
+        'RS': 'O',
+        'MN': 'U'
+    };
 
-    for (i=0; i < texto.length; i++){
-        if (claro.includes(texto[i])){
-            indice = claro.indexOf(texto[i]);
-            salida += cifrado[indice];
+    let i = 0;
+    while (i < texto.length) {
+        const parCaracteres = texto.slice(i, i + 2);
+        if (reemplazosInversos[parCaracteres]) {
+            salida += reemplazosInversos[parCaracteres];
+            i += 2; // Saltar los dos caracteres
+        } else {
+            salida += texto[i];
+            i += 1; // Saltar un carácter
         }
     }
-    if (texto.length !=0){
-        texto = salida;
-        tituloMensaje.textContent = texto;
+    if (document.getElementById("inputTexto", ).value !=0){
+        document.getElementById("inputTexto", ).value = texto
+        tituloMensaje.textContent = salida;
         parrafo.textContent = "";
-        muneco.src = "./Logo.png"
     }
     else {
-        muñeco.src = "./Muñeco.png";
+        document.getElementById("muneco").src = "./Muñeco.png";
         alert("Debes ingresar el texto")
     }
-    texto = ""
 }
-encriptador()
-desencriptador()
